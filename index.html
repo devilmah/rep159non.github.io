@@ -12,11 +12,18 @@
 	<label for="amount">Количество товара: </label>
 	<input type="text" name="amount" id="amount"><br><br>
 	<select  name="type_product" id="type_product">
-		<option >Пункт 1</option>
-		<option onclick="GetOptions()">Пункт 2</option>
-		<option>Пункт 3</option>
+		<option value="eclair">Эклеры</option>
+		<option value="wafer">Вафли</option>
+		<option value="croissant">Круасаны</option>
 	</select>
-	<div id="options"></div>
+	<div class="radios" id="radios">
+    <label><input type="radio" name="ropt" value="belg">Бельгийские</label>
+    <label><input type="radio" name="ropt" value="ven">Венские</label>
+    <label><input type="radio" name="ropt" value="gol">Голландские</label>
+  </div>  
+  <div class="checkk" id="checkk">
+  <label><input type="checkbox" name="chekboxx">C начинкой</label>
+ </div>
 	<div id="error" style="color:red"></div>
 	<input type="submit" name="submit" value="Посчитать"> 
 	</form>
