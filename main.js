@@ -1,8 +1,9 @@
+
 window.addEventListener('DOMContentLoaded', function (event) {
   let s = document.getElementsByName("type_product");
   	radios.style.display = "none";
   	checkk.style.display = "none";
-	let price="70";//глобальная переменная;
+	let price="60";//глобальная переменная;
   s[0].addEventListener("change", function(event) {
     let select = event.target;//ссылка на объект, который был инициатором события
     let radios = document.getElementById("radios");
@@ -18,20 +19,26 @@ window.addEventListener('DOMContentLoaded', function (event) {
 		radios.style.display = "none";
 		checkk.style.display = "block";
 		price="50";
-		 document.getElementByName("checkboxx").addEventListener("change",function(event){
-		let ch=event.target;
-		if(ch.checked){price="55"};
+		 var checkbox = document.querySelector('[type="checkbox"]');
+		 checkbox.addEventListener('change', function(event) {
+		
+		if(event.target.checked){price="55"};
+		if(!event.target.checked){price="50"};
 	  });
 	}
     if(select.value == "wafer") {
 	   checkk.style.display = "none";
       radios.style.display = "block";
-	  document.getElementsByName("ropt").addEventListener("change",function(event){
+	  price="70";
+	  var rad = document.getElementsByName("ropt");
+for (var i = 0; i < rad.length; i++) {
+    rad[i].addEventListener('change', function(event) {
 		let opt=event.target;
 		if(opt.value=="belg"){price="70"};
 		if(opt.value=="ven"){price="80"};
 		if(opt.value=="gol"){price="90"};
 	  });
+}
     }
   });
     let r = document.querySelectorAll(".radios input[type=radio]");
@@ -41,7 +48,7 @@ window.addEventListener('DOMContentLoaded', function (event) {
     //  console.log(r.value);//вывод в консоль
     });    
   });
-	let m=document.getElementsById('main-form');
+	let m=document.getElementById('main-form');
 	m.addEventListener("submit",function(event){
 	
 	event.preventDefault();
@@ -76,5 +83,6 @@ window.addEventListener('DOMContentLoaded', function (event) {
 
 
 	}); 
+
 
 });
